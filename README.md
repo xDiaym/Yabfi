@@ -20,8 +20,8 @@ Language contains only 8 commands:
 
 
 ## Work examples
-Test programs are in the test folder.
-Screenshots in res folder
+Test programs are in the 'test' folder.
+Screenshots in 'res' folder
 
 
 ## What is the peculiarity of this?
@@ -35,7 +35,7 @@ The interpreter size:
 ## Build
 ```
 git clone https://github.com/xDiaym/Yabfi
-cd Yabfi-master/src
+cd Yabfi/src
 mkdir build
 cd build
 cmake ../CMakeLists.txt
