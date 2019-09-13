@@ -4,9 +4,9 @@
 #include <string.h>
 #include <assert.h>
 
-#define STACK_SIZE (30000)
+#define TAPE_SIZE (30000)
 
-static char stack[STACK_SIZE] = {0};
+static char tape[TAPE_SIZE] = {0};
 
 static size_t get_file_size(FILE *fp)
 {
@@ -48,19 +48,19 @@ void interpreter(char *program)
         {
         case '+':
         {
-            ++stack[cell_num];
+            ++tape[cell_num];
             break;
         }
 
         case '-':
         {
-            --stack[cell_num];
+            --tape[cell_num];
             break;
         }
 
         case '>':
         {
-            assert(cell_num < STACK_SIZE);
+            assert(cell_num < TAPE_SIZE);
             cell_num++;
             break;
         }
@@ -74,13 +74,13 @@ void interpreter(char *program)
 
         case '.':
         {
-            putchar(stack[cell_num]);
+            putchar(tape[cell_num]);
             break;
         }
 
         case ',':
         {
-            stack[cell_num] = getchar();
+            tape[cell_num] = getchar();
             break;
         }
 
@@ -88,7 +88,7 @@ void interpreter(char *program)
         {
             unsigned long nesting_level = 1;
 
-            if (stack[cell_num] == 0)
+            if (tapr[cell_num] == 0)
             {
                 while (nesting_level > 0)
                 {
@@ -110,7 +110,7 @@ void interpreter(char *program)
         {
             unsigned long nesting_level = 1;
 
-            if (stack[cell_num] != 0)
+            if (tape[cell_num] != 0)
             {
                 while (nesting_level > 0)
                 {
